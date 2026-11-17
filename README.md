@@ -1,53 +1,75 @@
-# Excel Data Cleaner
+# Python Excel Data Cleaner
 
-A small Python command-line application that cleans `.xlsx` workbooks with
-[`openpyxl`](https://openpyxl.readthedocs.io/).
+A Python automation tool that helps clean messy Excel spreadsheets by removing duplicate rows, standardizing text, and identifying missing values.
+
+Built with **Python** and **openpyxl**, this project demonstrates practical Excel data cleaning and automation skills.
 
 ## Features
 
-- Removes duplicate data rows from every worksheet. The first row is treated
-  as the header, and duplicates are compared after whitespace normalization.
-- Trims leading/trailing whitespace and reduces runs of whitespace within
-  text cells to a single space.
-- Counts missing values (`None` and blank/whitespace-only cells) in non-empty
-  data rows, both before and after duplicate removal, with per-column totals.
-- Writes a cleaned workbook and a JSON summary report.
-- Refuses to overwrite existing files.
+- **Duplicate Removal:** Removes duplicate data rows across worksheets.
+- **Text Cleaning:** Removes unnecessary spaces and standardizes whitespace.
+- **Missing Value Detection:** Counts empty cells and generates per-column statistics.
+- **Multiple Worksheets:** Processes every worksheet in an Excel workbook.
+- **JSON Reports:** Generates a report summarizing the cleaning results.
+- **Safe Output:** Prevents accidental overwriting of existing files.
 
-Entirely blank data rows are ignored for duplicate and missing-value counts.
-Headers are whitespace-normalized but are not included in missing-value counts.
+## Technologies Used
 
-## Setup
+- Python 3.10+
+- openpyxl
+- Git & GitHub
 
-Python 3.10 or newer is recommended.
+## Installation
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/javohirtoych iyev220-glitch/ython-excel-data-cleane.git
+cd ython-excel-data-cleane
 python -m pip install -r requirements.txt
 ```
 
-## Run
+## Usage
 
-From this directory:
+Run the cleaner with a sample Excel file:
 
-```powershell
+```bash
 python excel_cleaner.py sample_data.xlsx
 ```
 
-By default this creates `cleaned_sample_data.xlsx` and
-`cleaned_sample_data_report.json` alongside the input. Specify output paths
-when needed:
+The program generates a cleaned Excel workbook and a JSON report.
 
-```powershell
+You can also specify output paths:
+
+```bash
 python excel_cleaner.py input.xlsx --output output.xlsx --report report.json
 ```
 
-The application returns a non-zero exit code and prints an error if the input
-is missing, the paths are invalid, or either output file already exists.
+## Testing
 
-## Tests
+The project includes automated tests.
 
-```powershell
-python -m unittest -v
+```bash
+python -m pytest -v
 ```
+
+Latest local test result: **4 passed (0.52 seconds)**.
+
+## Example Use Cases
+
+- Cleaning employee spreadsheets
+- Preparing customer records
+- Removing duplicate entries
+- Standardizing Excel data before analysis
+- Identifying missing information in datasets
+
+## Future Improvements
+
+- CSV file support
+- Configurable cleaning rules
+- Batch processing of multiple files
+- A simple graphical interface
+
+## Author
+
+Javohir — Python Automation & Excel Data Cleaning Portfolio Project
