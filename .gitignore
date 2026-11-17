@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+cleaned_data.xlsx
+portfolio_cleaned.xlsx
+report.json
+portfolio_report.json
+.env
+.venv/
